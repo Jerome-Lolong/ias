@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Visit</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Villa Agency TemplateMo - Contact Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <!-- Firebase Links -->
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
+</head>
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <h1>Villa</h1>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="properties.html">Properties</a></li>
+                      <li><a href="property-details.html">Property Details</a></li>
+                      <li><a href="contact.html" class="active">Contact Us</a></li>
+                      <li><a href="schedule.html"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
+                      <button id="logout-button" class="logout-btn"><a href="logins.html">Logout</a></button>
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+<body>
+    <a href="index.html"><button id="back-button" class="back-btn">Back to Mainpage</button></a>
+    <center><div class="schedule-visit-form">
+        <h2>Schedule a Visit</h2>
+        <form id="visit-form" action="schedule_visit.php" method="post">
+            <fieldset>
+                <label for="name">Full Name</label>
+                <input type="text" name="name" id="name" placeholder="Your Name..." required>
+            </fieldset>
+            <fieldset>
+                <label for="email">Email Address</label>
+                <input type="email" name="email" id="email" placeholder="Your E-mail..." required>
+            </fieldset>
+            <fieldset>
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" id="phone" placeholder="Your Phone Number..." required>
+            </fieldset>
+            <fieldset>
+                <label for="date">Preferred Date</label>
+                <input type="date" name="date" id="date" required>
+            </fieldset>
+            <fieldset>
+                <label for="time">Preferred Time</label>
+                <input type="time" name="time" id="time" required>
+            </fieldset>
+            <fieldset>
+                <label for="message" style="left: -100px;">Message</label>
+                <textarea name="message" id="message" placeholder="Your Message..."></textarea>
+            </fieldset>
+            <fieldset>
+                <button type="submit" id="form-submit" class="orange-button">Schedule Visit</button>
+            </fieldset>
+        </form>
+    </div></center>
+    <script src="schedule_visit.php"></script>
+    <script>
+        document.getElementById('form-submit').addEventListener('click', function() {
+            var name = encodeURIComponent(document.getElementById('name').value);
+            var email = encodeURIComponent(document.getElementById('email').value);
+            var subject = encodeURIComponent(document.getElementById('subject').value);
+            var message = encodeURIComponent(document.getElementById('message').value);
+            
+            var mailtoLink = `mailto:jerome.lolong09@gmail.com?subject=${subject}&body=Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+    
+            window.location.href = mailtoLink;
+        });
+        // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBPArtjVU0Y2fZN8gOTQ74LMyck58KzgRk",
+        authDomain: "login-6f052.firebaseapp.com",
+        projectId: "login-6f052",
+        storageBucket: "login-6f052.appspot.com",
+        messagingSenderId: "1044726570477",
+        appId: "1:1044726570477:web:6b469e26d7dd1ff798dbe4"
+      };
+    
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    
+      // Logout button functionality
+      document.getElementById('logout-button').addEventListener('click', function() {
+        firebase.auth().signOut().then(() => {
+          window.location.href = 'login.html';
+        }).catch((error) => {
+          console.log('Error: ', error.message);
+        });
+      });
+    
+      // Protecting routes
+      firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+          window.location.href = 'login.html';
+        }
+      });
+    
+      firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+          window.location.href = 'login.html';
+        }
+      });
+    </script>
+</body>
+</html>

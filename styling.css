@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.schedule-visit-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 500px;
+}
+
+.schedule-visit-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.schedule-visit-form fieldset {
+    border: none;
+    margin-bottom: 15px;
+}
+
+.schedule-visit-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.schedule-visit-form input,
+.schedule-visit-form textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.schedule-visit-form button {
+    width: 100%;
+    padding: 10px;
+    background: orange;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.schedule-visit-form button:hover {
+    background: darkorange;
+}
+.back-btn {
+    background-color: orange; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 5px; /* Padding inside the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+    height: 55px;
+    width: 200px;
+    position: absolute;
+    left: 25px;
+    bottom: 720px;
+    
+  }
+  
+  .back-btn:hover {
+    background-color: darkorange; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+  
+  .back-btn:active {
+    background-color: darkorange; /* Even darker blue when pressed */
+  }

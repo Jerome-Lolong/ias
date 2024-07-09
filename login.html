@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="register.js" defer></script>
+</head>
+<body>
+    <div class="slideshow">
+        <img src="/VillaAgency-1.0.0/assets/images/test.webp" alt="Image 1" class="slide">
+        <img src="/VillaAgency-1.0.0/assets/images/test1.webp" alt="Image 2" class="slide">
+        <img src="/VillaAgency-1.0.0/assets/images/test2.webp" alt="Image 3" class="slide">
+        <img src="/VillaAgency-1.0.0/assets/images/test3.webp" alt="Image 4" class="slide">
+        <img src="/VillaAgency-1.0.0/assets/images/test4.webp" alt="Image 5" class="slide">
+        <img src="/VillaAgency-1.0.0/assets/images/test5.webp" alt="Image 6" class="slide">
+    </div>
+    <div class="container">
+        <div class="signup-form">
+            <h1 style="color: black;">Sign Up</h1>
+            <form>
+                <input type="Firstname" placeholder="Please put your Firstname" id="fname" required>
+                <input type="Lastname" placeholder="Please put your Lastname" id="lname" required>
+                <input type="Mobile Number" placeholder="Please put your Mobile No." id="phone" required>
+                <input type="email" placeholder="Create an email" id="email" required>
+                <input type="password" placeholder="Create a password" id="password" required>
+                <button id="submit" type="submit">Create Account</button>
+                <br>
+                
+                <p style="color: black; font-family: 'Courier New', Courier, monospace;" >Already have an account? Click <a href="logins.html" style="color: navy;">here!</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll('.slideshow .slide');
+    let currentSlide = 0;
+    slides[currentSlide].classList.add('active');
+
+    const slideInterval = setInterval(nextSlide, 5000);
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+});
+
+    </script>
+</body>
+</html>

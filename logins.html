@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="login.js" defer></script>
+</head>
+<body>
+    <div class="slideshow">
+        <img src="/VillaAgency-1.0.0/assets/images/test.webp" alt="Image 1" class="slide">
+        <img src="/VillaAgency-1.0.0/assets/images/test1.webp" alt="Image 2" class="slide">
+        <img src="/VillaAgency-1.0.0/assets/images/test2.webp" alt="Image 3" class="slide">
+        <img src="/VillaAgency-1.0.0/assets/images/test3.webp" alt="Image 4" class="slide">
+        <img src="/VillaAgency-1.0.0/assets/images/test4.webp" alt="Image 5" class="slide">
+        <img src="/VillaAgency-1.0.0/assets/images/test5.webp" alt="Image 6" class="slide">
+    </div>
+    <div class="container">
+        <div class="signup-form">
+            <h1 style="color: black;">Welcome User!</h1>
+            <form>
+                <input type="email" placeholder="Enter your email" id="email" required>
+                <input type="password" placeholder="Enter your password" id="password" required>
+                <button id="submit" type="submit">Login</button>
+                <br>
+                
+                <p style="color: black; font-family: 'Courier New', Courier, monospace;" >Don't have an account? Click <a href="login.html" style="color: navy;">here!</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll('.slideshow .slide');
+    let currentSlide = 0;
+    slides[currentSlide].classList.add('active');
+
+    const slideInterval = setInterval(nextSlide, 5000);
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+});
+    </script>
+</body>
+</html>
